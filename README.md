@@ -56,4 +56,15 @@ The following sketches were used to verify the hardware:
 ---
 
 ## Sample Serial Output
+Distance (cm): 36.06
+Accel (X Y Z): 244 -388 17160
+Gyro (X Y Z):  368 -62 -80
 
+## Phase 1 Completion
+
+- ✅ Built physical circuit with HC-SR04 Ultrasonic Sensor and MPU6050 Accelerometer/Gyro
+- ✅ Verified live data printed to Serial Monitor
+- ✅ Arduino sketches uploaded and tested successfully
+
+### Circuit Photo
+![Circuit Phase 1](circuit_phase1)
