@@ -22,9 +22,8 @@ Data is transmitted via serial communication to the computer and displayed for v
 
 ---
 
-## Wiring Diagram
-
-![Wiring Diagram](wiring_diagram.png)
+### Circuit Photo
+![Circuit Phase 1](circuit_phase1.jpg.jpg)
 
 ### HC-SR04 Ultrasonic Sensor
 | Sensor Pin | Arduino Pin |
@@ -66,5 +65,4 @@ Gyro (X Y Z):  368 -62 -80
 - ✅ Verified live data printed to Serial Monitor
 - ✅ Arduino sketches uploaded and tested successfully
 
-### Circuit Photo
-![Circuit Phase 1](circuit_phase1.jpg.jpg)
+
