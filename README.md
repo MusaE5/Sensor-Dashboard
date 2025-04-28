@@ -67,4 +67,4 @@ Gyro (X Y Z):  368 -62 -80
 - ✅ Arduino sketches uploaded and tested successfully
 
 ### Circuit Photo
-![Circuit Phase 1](circuit_phase1)
+![Circuit Phase 1](circuit_phase1.jpg)
