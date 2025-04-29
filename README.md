@@ -65,4 +65,51 @@ Gyro (X Y Z):  368 -62 -80
 - ✅ Verified live data printed to Serial Monitor
 - ✅ Arduino sketches uploaded and tested successfully
 
+---
+
+# ✅ Sensor Dashboard – Phase 2: Real-Time Python Plotting
+
+## Overview
+Phase 2 implements live data visualization using Python and Matplotlib.  
+Sensor readings from the Arduino are streamed via serial and plotted in real time.
+
+---
+
+## Features
+
+- 📡 **Live distance plotting** from HC-SR04
+- ✅ Distance values are filtered using:
+  - Range clamping (2–200 cm)
+  - 5-point moving average smoothing
+- 🧠 Smart logic: only print/send distance if it changes by more than 5 cm
+
+---
+
+## Python Files
+
+| Filename | Purpose |
+|----------|---------|
+| `Python/live_plot_distance.py` | Real-time distance plot with smoothing and outlier rejection |
+
+---
+
+## How It Works
+
+- Arduino sends formatted lines like:  
+  `13.07,204,-460,17032,356,-97,-47`  
+- Python reads the serial line, parses the distance, and appends it to a live Matplotlib graph
+
+---
+
+## Sample Plot
+_*(Add a screenshot here later)*_
+
+---
+
+## Phase 2 Completion
+
+- ✅ Developed Python script to read and plot live distance data  
+- ✅ Applied filtering and change detection for clean visual output  
+- ✅ Organized Python files and committed updates to GitHub  
+
 
