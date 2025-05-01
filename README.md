@@ -23,7 +23,7 @@ Data is transmitted via serial communication to the computer and displayed for v
 ---
 
 ### Circuit Photo  
-_*(Make sure this file exists inside `Phase1_Arduino_Only/`)*_  
+ 
 ![Circuit Phase 1](Phase1_Arduino/circuit_phase1.jpg.jpg)
 
 ---
@@ -43,7 +43,7 @@ _*(Make sure this file exists inside `Phase1_Arduino_Only/`)*_
 
 | Sensor Pin | Arduino Pin |
 |------------|-------------|
-| VCC        | 3.3V        |
+| VCC        | 5V        |
 | GND        | GND         |
 | SDA        | A4          |
 | SCL        | A5          |
@@ -92,7 +92,7 @@ Sensor readings from the Arduino are streamed via serial and plotted in real tim
 - ✅ Data filtering:
   - Range clamping (2–200 cm)
   - Change threshold (only send if delta > 5 cm)
-- 🧠 Buffered plotting using Python `deque` to maintain live display
+-   Buffered plotting using Python `deque` to maintain live display
 
 ---
 
@@ -118,7 +118,7 @@ Sensor readings from the Arduino are streamed via serial and plotted in real tim
 ---
 
 ## Sample Plot  
-_*(📌 Add your screenshot to `Phase2_Python_Graphing/plot_sample.png` and update path below)*_  
+
 ![Phase 2 Plot](Phase2_python_graphing/plot_sample.png.png)
 
 ---
@@ -164,7 +164,6 @@ Phase 3 completes the system by adding:
 ---
 
 ## Circuit Photos  
-_*(📌 Add your final circuit images to `Phase3_Full_Integration/` and update these paths if needed)*_
 
 **Full Circuit Setup:**  
 ![Full Setup](Phase3_Full_Integration/Phase3_circuit.jpeg.jpeg)
@@ -180,6 +179,11 @@ _*(📌 Add your final circuit images to `Phase3_Full_Integration/` and update t
 _Last value = button state (1 = pressed)_
 
 ---
+
+## Live plot Photos
+![Final plot](Phase3_Full_Integration/Phase3_finalplot.png.png)
+
+
 
 ## Phase 3 Completion
 
