@@ -35,6 +35,7 @@ void loop() {
   int16_t ax, ay, az, gx, gy, gz;
   mpu.getMotion6(&ax, &ay, &az, &gx, &gy, &gz);
 
+
   // ——— CSV Output: distance,ax,ay,az,gx,gy,gz ———
   if (distance < 0) {
     Serial.print(-1);            // use –1 for out-of-range

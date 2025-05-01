@@ -3,8 +3,8 @@
 ## Overview
 This project creates a real-time sensor dashboard using an Arduino Uno and Python.  
 Phase 1 focuses on setting up and testing hardware sensors:
-- HC-SR04 Ultrasonic Distance Sensor
-- MPU-6050 Accelerometer and Gyroscope
+- HC-SR04 Ultrasonic Distance Sensor  
+- MPU-6050 Accelerometer and Gyroscope  
 
 Data is transmitted via serial communication to the computer and displayed for verification.
 
@@ -13,19 +13,23 @@ Data is transmitted via serial communication to the computer and displayed for v
 ## Hardware Setup
 
 **Components:**
-- Arduino Uno
-- HC-SR04 Ultrasonic Sensor
-- MPU-6050 Accelerometer/Gyroscope
-- Breadboard
-- Jumper Wires
+- Arduino Uno  
+- HC-SR04 Ultrasonic Sensor  
+- MPU-6050 Accelerometer/Gyroscope  
+- Breadboard  
+- Jumper Wires  
 - Resistors (optional for LEDs later)
 
 ---
 
-### Circuit Photo
-![Circuit Phase 1](circuit_phase1.jpg.jpg)
+### Circuit Photo  
+_*(Make sure this file exists inside `Phase1_Arduino_Only/`)*_  
+![Circuit Phase 1](Phase1_Arduino/circuit_phase1.jpg.jpg)
 
-### HC-SR04 Ultrasonic Sensor
+---
+
+### HC-SR04 Ultrasonic Sensor Pinout
+
 | Sensor Pin | Arduino Pin |
 |------------|-------------|
 | VCC        | 5V          |
@@ -33,7 +37,10 @@ Data is transmitted via serial communication to the computer and displayed for v
 | Trig       | D9          |
 | Echo       | D10         |
 
-### MPU-6050 Sensor
+---
+
+### MPU-6050 Sensor Pinout
+
 | Sensor Pin | Arduino Pin |
 |------------|-------------|
 | VCC        | 3.3V        |
@@ -49,21 +56,24 @@ The following sketches were used to verify the hardware:
 
 | Filename | Purpose |
 |----------|---------|
-| `Arduino/Phase1_DistanceSensor.ino` | Test and output distance readings from the HC-SR04 sensor |
-| `Arduino/Phase1_MPU6050.ino` | Test and output Z-axis acceleration readings from the MPU-6050 sensor |
+| `phase1_distance.ino` | Test and output distance readings from the HC-SR04 sensor |
+| `phase1_mpu6050.ino`  | Test and output accel/gyro data from the MPU-6050 sensor |
 
 ---
 
 ## Sample Serial Output
 Distance (cm): 36.06
 Accel (X Y Z): 244 -388 17160
-Gyro (X Y Z):  368 -62 -80
+Gyro (X Y Z): 368 -62 -80
+
+
+---
 
 ## Phase 1 Completion
 
-- ✅ Built physical circuit with HC-SR04 Ultrasonic Sensor and MPU6050 Accelerometer/Gyro
-- ✅ Verified live data printed to Serial Monitor
-- ✅ Arduino sketches uploaded and tested successfully
+- ✅ Built physical circuit with HC-SR04 and MPU6050  
+- ✅ Verified working serial output  
+- ✅ Uploaded and tested both Arduino sketches
 
 ---
 
@@ -77,11 +87,12 @@ Sensor readings from the Arduino are streamed via serial and plotted in real tim
 
 ## Features
 
-- 📡 **Live distance plotting** from HC-SR04
-- ✅ Distance values are filtered using:
+- 📡 **Live distance plotting** from HC-SR04  
+- 📉 **Real-time accelerometer and gyroscope plotting** from MPU-6050  
+- ✅ Data filtering:
   - Range clamping (2–200 cm)
-  - 5-point moving average smoothing
-- 🧠 Smart logic: only print/send distance if it changes by more than 5 cm
+  - Change threshold (only send if delta > 5 cm)
+- 🧠 Buffered plotting using Python `deque` to maintain live display
 
 ---
 
@@ -89,27 +100,124 @@ Sensor readings from the Arduino are streamed via serial and plotted in real tim
 
 | Filename | Purpose |
 |----------|---------|
-| `Python/live_plot_distance.py` | Real-time distance plot with smoothing and outlier rejection |
+| `Phase2_dashboard.py` | Plots live distance and motion data using Matplotlib |
 
 ---
 
 ## How It Works
 
-- Arduino sends formatted lines like:  
-  `13.07,204,-460,17032,356,-97,-47`  
-- Python reads the serial line, parses the distance, and appends it to a live Matplotlib graph
+- Arduino sends serial output like:
+13.07,204,-460,17032,356,-97,-47
+
+
+- Python script:
+  - Parses the values
+  - Appends to `deque` buffer
+  - Plots live on three subplots (distance, accel, gyro)
 
 ---
 
-## Sample Plot
-_*(Add a screenshot here later)*_
+## Sample Plot  
+_*(📌 Add your screenshot to `Phase2_Python_Graphing/plot_sample.png` and update path below)*_  
+![Phase 2 Plot](Phase2_python_graphing/plot_sample.png.png)
 
 ---
 
 ## Phase 2 Completion
 
-- ✅ Developed Python script to read and plot live distance data  
-- ✅ Applied filtering and change detection for clean visual output  
-- ✅ Organized Python files and committed updates to GitHub  
+- ✅ Developed Python script for real-time plotting  
+- ✅ Integrated ultrasonic + IMU into one stream  
+- ✅ Tested working graph and clean visualization  
+- ✅ Python code organized and committed
+
+---
+
+# ✅ Sensor Dashboard – Phase 3: Button + LED + Full Integration
+
+## Overview
+Phase 3 completes the system by adding:
+- A push-button input  
+- An LED output that lights up when the button is pressed  
+- A Python alert system for both proximity and button events  
+- A fourth subplot to display live button states
+
+---
+
+## Features
+
+- 🔘 **Button press detection** shown in graph and console  
+- 💡 **LED output** toggled based on button input  
+- ⚠️ **Alert system**:
+  - Object within 20 cm → console warning
+  - Button pressed → console log
+- 📊 4 live graphs (distance, accel, gyro, button)
+
+---
+
+## Files
+
+| Filename | Purpose |
+|----------|---------|
+| `phase3_firmware.ino` | Sends 8 values: distance, accel, gyro, button |
+| `Sensor_dashboard.py` | Python script for live multi-panel dashboard |
+
+---
+
+## Circuit Photos  
+_*(📌 Add your final circuit images to `Phase3_Full_Integration/` and update these paths if needed)*_
+
+**Full Circuit Setup:**  
+![Full Setup](Phase3_Full_Integration/Phase3_circuit.jpeg.jpeg)
+
+**Button Pressed (LED On):**  
+![LED On](Phase3_Full_Integration/Phase3_circuit_button.jpeg.jpeg)
+
+---
+
+## Sample Serial Output
+15.23,120,-40,16000,5,-10,2,1
+
+_Last value = button state (1 = pressed)_
+
+---
+
+## Phase 3 Completion
+
+- ✅ Button and LED integrated with Arduino + Python  
+- ✅ Final serial output includes 8 total values  
+- ✅ Live plotting with alert system complete  
+- ✅ Final dashboard demo tested and working  
+
+---
+
+## How to Run (Phase 3)
+
+1. Upload `phase3_firmware.ino` to Arduino  
+2. Run `sensor_dashboard.py` in terminal (Python 3)  
+3. Watch the dashboard graph in real time  
+4. Press the button and move hand near sensor to test alerts
+
+---
+
+## Python Requirements
+
+pyserial matplotlib
+
+Install with:
+```bash
+pip install -r requirements.txt
+
+Project Status
+✅ Phase 1 – Hardware setup + serial output
+
+✅ Phase 2 – Real-time Python dashboard
+
+✅ Phase 3 – Button + LED + final integration
+
+📌 Future: Add gesture classification (ML), servo motor control, and object detection
+
+Author
+Built by Musa Elashaal
+As part of a summer 2025 AI + Embedded Systems project roadmap
 
 
