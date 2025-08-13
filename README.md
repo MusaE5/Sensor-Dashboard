@@ -71,13 +71,13 @@ Gyro (X Y Z): 368 -62 -80
 
 ## Phase 1 Completion
 
-- ✅ Built physical circuit with HC-SR04 and MPU6050  
-- ✅ Verified working serial output  
-- ✅ Uploaded and tested both Arduino sketches
+-  Built physical circuit with HC-SR04 and MPU6050  
+-  Verified working serial output  
+-  Uploaded and tested both Arduino sketches
 
 ---
 
-# ✅ Sensor Dashboard – Phase 2: Real-Time Python Plotting
+#  Sensor Dashboard – Phase 2: Real-Time Python Plotting
 
 ## Overview
 Phase 2 implements live data visualization using Python and Matplotlib.  
@@ -87,12 +87,12 @@ Sensor readings from the Arduino are streamed via serial and plotted in real tim
 
 ## Features
 
-- 📡 **Live distance plotting** from HC-SR04  
-- 📉 **Real-time accelerometer and gyroscope plotting** from MPU-6050  
-- ✅ Data filtering:
-  - Range clamping (2–200 cm)
-  - Change threshold (only send if delta > 5 cm)
--   Buffered plotting using Python `deque` to maintain live display
+-  **Live distance plotting** from HC-SR04  
+-  **Real-time accelerometer and gyroscope plotting** from MPU-6050  
+-  Data filtering:
+-  Range clamping (2–200 cm)
+-  Change threshold (only send if delta > 5 cm)
+-  Buffered plotting using Python `deque` to maintain live display
 
 ---
 
@@ -125,10 +125,10 @@ Sensor readings from the Arduino are streamed via serial and plotted in real tim
 
 ## Phase 2 Completion
 
-- ✅ Developed Python script for real-time plotting  
-- ✅ Integrated ultrasonic + IMU into one stream  
-- ✅ Tested working graph and clean visualization  
-- ✅ Python code organized and committed
+- Developed Python script for real-time plotting  
+- Integrated ultrasonic + IMU into one stream  
+- Tested working graph and clean visualization  
+- Python code organized and committed
 
 ---
 
@@ -187,10 +187,10 @@ _Last value = button state (1 = pressed)_
 
 ## Phase 3 Completion
 
-- ✅ Button and LED integrated with Arduino + Python  
-- ✅ Final serial output includes 8 total values  
-- ✅ Live plotting with alert system complete  
-- ✅ Final dashboard demo tested and working  
+-  Button and LED integrated with Arduino + Python  
+-  Final serial output includes 8 total values  
+-  Live plotting with alert system complete  
+-  Final dashboard demo tested and working  
 
 ---
 
@@ -201,27 +201,5 @@ _Last value = button state (1 = pressed)_
 3. Watch the dashboard graph in real time  
 4. Press the button and move hand near sensor to test alerts
 
----
-
-## Python Requirements
-
-pyserial matplotlib
-
-Install with:
-```bash
-pip install -r requirements.txt
-
-Project Status
-✅ Phase 1 – Hardware setup + serial output
-
-✅ Phase 2 – Real-time Python dashboard
-
-✅ Phase 3 – Button + LED + final integration
-
-📌 Future: Add gesture classification (ML), servo motor control, and object detection
-
-Author
-Built by Musa Elashaal
-As part of a summer 2025 AI + Embedded Systems project roadmap
 
 
